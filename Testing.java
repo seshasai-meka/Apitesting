@@ -1,13 +1,4 @@
 
-
-		
-		
-		
-
-	
-	
-package com.module1;
-
 public class Testing {
     public static void main(String[] args) {
         // Print Java version to confirm
