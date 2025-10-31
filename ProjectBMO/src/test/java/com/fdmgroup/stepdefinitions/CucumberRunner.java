@@ -1,0 +1,50 @@
+package com.fdmgroup.stepdefinitions;
+
+import org.junit.runner.RunWith;
+
+import org.junit.runners.Suite;
+
+import org.junit.runners.Suite.SuiteClasses;
+  
+import io.cucumber.junit.Cucumber;
+
+import io.cucumber.junit.CucumberOptions;
+ 
+@RunWith(Cucumber.class)
+
+@CucumberOptions(
+
+		features="src/test/resources/Features",
+
+        glue= {"com.fdmgroup.stepdefinitions"},
+
+        tags= "",
+
+        plugin= {
+
+        		"pretty",
+
+		        "json:Report/cucumberProject.json",
+
+		        "junit:Report/cucumberProject.junit",
+
+		        "html:Report/cucumberProject.html"
+
+	 },
+
+        //color
+        
+        monochrome = false,
+
+        dryRun = false,
+
+        publish = true	
+
+        )
+
+ 
+
+public class CucumberRunner {
+	
+	
+}

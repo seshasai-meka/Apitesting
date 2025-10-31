@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="183.522" tests="11" skipped="0" failures="0" errors="0">
+<testcase classname="As a user I want to see the branches from the mentioned address" name="User should not be able to locate the branches with invalid details - Example #1.1" time="14.823">
+<system-out><![CDATA[
+Given User is in the home page..............................................passed
+When Click on the branch locator............................................passed
+Then User is able to see Branch Locator page................................passed
+And User enters "suduai" details............................................passed
+And User should be able to see the error message "We came up empty! Double-check your spelling, or try adding a city, province or postal code.".passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to see the branches from the mentioned address" name="User should not be able to locate the branches with invalid details - Example #1.2" time="27.163">
+<system-out><![CDATA[
+Given User is in the home page..............................................passed
+When Click on the branch locator............................................passed
+Then User is able to see Branch Locator page................................passed
+And User enters "star129" details...........................................passed
+And User should be able to see the error message "We came up empty! Double-check your spelling, or try adding a city, province or postal code.".passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to see the branches from the mentioned address" name="User should not be able to locate the branches with invalid details - Example #1.3" time="19.522">
+<system-out><![CDATA[
+Given User is in the home page..............................................passed
+When Click on the branch locator............................................passed
+Then User is able to see Branch Locator page................................passed
+And User enters "y3492d" details............................................passed
+And User should be able to see the error message "We came up empty! Double-check your spelling, or try adding a city, province or postal code.".passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to see the branches from the mentioned address" name="User should be able to provide valid address - Example #1.1" time="17.61">
+<system-out><![CDATA[
+Given User is in the home page..............................................passed
+When Click on the branch locator............................................passed
+Then User is able to see Branch Locator page................................passed
+When User enters "Toronto" details..........................................passed
+Then Nearby Branches should be visible......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to see the branches from the mentioned address" name="User should be able to provide valid address - Example #1.2" time="13.226">
+<system-out><![CDATA[
+Given User is in the home page..............................................passed
+When Click on the branch locator............................................passed
+Then User is able to see Branch Locator page................................passed
+When User enters "Scarborough" details......................................passed
+Then Nearby Branches should be visible......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to test the loan calculator is working properly" name="User should be able to calculate with valid input values - Example #1.1" time="17.389">
+<system-out><![CDATA[
+Given User is in the BMO Loan calculator page...............................passed
+When the user enters loan amount "2000.00"..................................passed
+And the user enters interest rate "10%".....................................passed
+And the user selects payment frequency "Weekly".............................passed
+And the user selects amortization "10 years"................................passed
+Then an estimated payment is displayed......................................passed
+And User estimated payment matches the value of "$6"........................passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to test the loan calculator is working properly" name="User should be able to calculate with valid input values - Example #1.2" time="14.739">
+<system-out><![CDATA[
+Given User is in the BMO Loan calculator page...............................passed
+When the user enters loan amount "3000.00"..................................passed
+And the user enters interest rate "8%"......................................passed
+And the user selects payment frequency "Monthly"............................passed
+And the user selects amortization "5 years".................................passed
+Then an estimated payment is displayed......................................passed
+And User estimated payment matches the value of "$61".......................passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to test the loan calculator is working properly" name="User should be able to calculate with valid input values - Example #1.3" time="17.911">
+<system-out><![CDATA[
+Given User is in the BMO Loan calculator page...............................passed
+When the user enters loan amount "5000.00"..................................passed
+And the user enters interest rate "12%".....................................passed
+And the user selects payment frequency "Bi-Weekly"..........................passed
+And the user selects amortization "3 years".................................passed
+Then an estimated payment is displayed......................................passed
+And User estimated payment matches the value of "$166"......................passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to test the loan calculator is working properly" name="User should see validation messages for invalid input values" time="15.73">
+<system-out><![CDATA[
+Given User is in the BMO Loan calculator page...............................passed
+When the user enters loan amount "20002000".................................passed
+And the user enters interest rate "500%"....................................passed
+Then a validation message "Enter an amount between $2,000 and $9,999,999." should be displayed.passed
+And a validation message "Please enter a value between 0% and 100%." should be displayed.passed
+]]></system-out>
+</testcase>
+<testcase classname="As an User I want to get the Travel Insurance Quote" name="User selects &quot;Yes&quot; for the existing quote and gets warning message" time="10.471">
+<system-out><![CDATA[
+Given the user is on the BMO Travel Insurance Quote page....................passed
+And Before you begin Page appears...........................................passed
+When User selects existing insurance option "Yes"...........................passed
+Then a warning message "This coverage might not be appropriate for you, please call 1-800-661-9060 for further assistance." should be displayed.passed
+]]></system-out>
+</testcase>
+<testcase classname="As an User I want to get the Travel Insurance Quote" name="User selects &quot;No&quot; and verifies navigation to Trip Information page" time="14.852">
+<system-out><![CDATA[
+Given the user is on the BMO Travel Insurance Quote page....................passed
+And Before you begin Page appears...........................................passed
+When User selects existing insurance option "No"............................passed
+And clicks on "LET'S BEGIN" button..........................................passed
+Then the trip information form should be displayed..........................passed
+]]></system-out>
+</testcase>
+</testsuite>
