@@ -1,61 +1,55 @@
 pipeline {
-    agent any
+  agent any
 
-    tools {
-        // Use Maven and JDK configured in Jenkins
-        maven 'Maven3.9.11'
+  tools {
+    maven 'Maven3.9.11'
     jdk 'jdk21'
-    }
-
-    stages {
-
-        stage('Checkout Code') {
-            steps {
-                echo 'Pulling latest code from GitHub...'
-                git branch: 'main', url: 'https://github.com/seshasai-meka/Apitesting.git'
-            }
-        }
-
-        stage('Build Project') {
-            steps {
-                echo 'Building Maven project...'
-                sh 'mvn clean compile'
-            }
-        }
-
-        stage('Run API Tests') {
-            steps {
-                echo 'Running Cucumber + RestAssured Tests...'
-                sh 'mvn test'
-            }
-        }
-
-     stage('Publish Cucumber HTML Report') {
-  steps {
-    echo 'Publishing Cucumber HTML Report...'
-    publishHTML([
-      allowMissing: true,
-      alwaysLinkToLastBuild: true,
-      keepAll: true,
-      reportDir: 'APIProject/Report',
-      reportFiles: 'cucumberProject.html',
-      reportName: 'Cucumber Test Report'
-    ])
   }
-}
 
+  stages {
+
+    stage('Checkout Code') {
+      steps {
+        echo '🔄 Pulling latest code from GitHub...'
+        git branch: 'main', url: 'https://github.com/seshasai-meka/Apitesting.git'
+      }
     }
 
-    post {
-        always {
-            echo 'Cleaning up workspace...'
-            cleanWs()
+    stage('Build and Test Project') {
+      steps {
+        dir('APIProject') {
+          echo '⚙️ Building and running tests from APIProject folder...'
+          sh 'mvn clean compile'
+          sh 'mvn test'
         }
-        success {
-            echo '✅ Build and Tests Completed Successfully!'
-        }
-        failure {
-            echo '❌ Build or Tests Failed. Check Console Output for Details.'
-        }
+      }
     }
+
+    stage('Publish Cucumber HTML Report') {
+      steps {
+        echo '📊 Publishing Cucumber HTML Report...'
+        publishHTML([
+          allowMissing: true,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'APIProject/Report',
+          reportFiles: 'cucumberProject.html',
+          reportName: 'Cucumber Test Report'
+        ])
+      }
+    }
+  }
+
+  post {
+    always {
+      echo '🧹 Cleaning up workspace...'
+      cleanWs()
+    }
+    success {
+      echo '✅ Build and Tests Completed Successfully!'
+    }
+    failure {
+      echo '❌ Build or Tests Failed. Check Console Output for Details.'
+    }
+  }
 }
