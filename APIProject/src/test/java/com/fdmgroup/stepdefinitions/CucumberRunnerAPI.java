@@ -9,9 +9,8 @@ import io.cucumber.junit.CucumberOptions;
 
 @CucumberOptions(
 
-		features="src/test/resources",
-
-       glue= {"com.fdmgroup.stepdefinitions"},
+	features = "src/test/resources",   
+    glue = {"com.fdmgroup.stepdefinitions"},   
 
        tags= "",
 
