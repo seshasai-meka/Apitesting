@@ -30,20 +30,20 @@ pipeline {
             }
         }
 
-        stage('Generate HTML Report') {
-            steps {
-                echo 'Publishing Extent Report...'
-                // Update reportDir and reportFiles if your folder name changes
-                publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'Report',
-                    reportFiles: 'extent-report.html',
-                    reportName: 'Extent Report'
-                ])
-            }
-        }
+     stage('Publish Cucumber HTML Report') {
+  steps {
+    echo 'Publishing Cucumber HTML Report...'
+    publishHTML([
+      allowMissing: true,
+      alwaysLinkToLastBuild: true,
+      keepAll: true,
+      reportDir: 'APIProject/Report',
+      reportFiles: 'cucumberProject.html',
+      reportName: 'Cucumber Test Report'
+    ])
+  }
+}
+
     }
 
     post {
