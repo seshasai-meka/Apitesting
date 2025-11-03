@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="0.883" tests="8" skipped="0" failures="0" errors="0">
+<testcase classname="As an user I want to manage the food items by getting, creating and updating the items" name="As an user I want to see all the food Items with ID,name and price" time="0.518">
+<system-out><![CDATA[
+Given the API is running....................................................passed
+When User sends a GET request to "/foods"...................................passed
+Then User should be able to see all the foods with ID, Name and Price.......passed
+]]></system-out>
+</testcase>
+<testcase classname="As an user I want to manage the food items by getting, creating and updating the items" name="As an user I want to create a  new item  and verify it" time="0.182">
+<system-out><![CDATA[
+Given the API is running....................................................passed
+When user creates a food item with the following details Id "5" , Name "shawarma", Price 9.99.passed
+Then user should be able to see it successfully.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="As an user I want to manage the food items by getting, creating and updating the items" name="As an user I want to update the price of an Item and verify it" time="0.017">
+<system-out><![CDATA[
+Given the API is running....................................................passed
+When user updates the price of food with ID "5" to 5.99.....................passed
+Then user should be able to see the updated price...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to manage comments by creating, retrieving, and deleting them" name="As an user, I want to create a new comment with foodId and verify it." time="0.02">
+<system-out><![CDATA[
+Given the API is running....................................................passed
+When user creates a new comment with Id "7", userId 7, body "worst" and foodId 7.passed
+Then user should be able to see the comment created successfully............passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to manage comments by creating, retrieving, and deleting them" name="As an user, I want to be able to delete the comment with Id" time="0.011">
+<system-out><![CDATA[
+Given the API is running....................................................passed
+When user deletes the comment with Id "7"...................................passed
+Then user should not be able to see the comment anymore.....................passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to manage comments by creating, retrieving, and deleting them" name="As an user, I want to get the comment information with user and food ids and verify it with body of the comment" time="0.032">
+<system-out><![CDATA[
+Given the API is running....................................................passed
+When user retrieves the comment using userId 1 and foodId 4.................passed
+Then user should be able to see the comment body "amazing"..................passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to manage staff members under managers by updating and deleting their details" name="As an user, I want to be able to update list of the staffs based on managers id and verify them" time="0.015">
+<system-out><![CDATA[
+Given the API is running....................................................passed
+When user updates the list of staffs for manager with id "1"................passed
+Then user should be able to verify all staffs are updated for that manager..passed
+]]></system-out>
+</testcase>
+<testcase classname="As a user I want to manage staff members under managers by updating and deleting their details" name="As an user, I want to be able to delete a staff based on staffs id with one manager and count them" time="0.017">
+<system-out><![CDATA[
+Given the API is running....................................................passed
+When user deletes the staff with id 2 under manager "1".....................passed
+Then user should be able to verify the remaining staff count under that manager.passed
+]]></system-out>
+</testcase>
+</testsuite>
