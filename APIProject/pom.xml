@@ -8,21 +8,16 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>APITestingDemo</name>
 
-  <!-- ========================================================= -->
-  <!--            BUILD PROPERTIES                               -->
-  <!-- ========================================================= -->
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <cucumber.publish.quiet>true</cucumber.publish.quiet>
   </properties>
 
-  <!-- ========================================================= -->
-  <!--            DEPENDENCIES                                   -->
-  <!-- ========================================================= -->
   <dependencies>
 
-    <!-- Selenium (optional, only if UI tests also exist) -->
+    <!-- Selenium (optional, for UI tests) -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
@@ -42,6 +37,7 @@
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
       <version>7.14.0</version>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -66,50 +62,36 @@
       <version>2.20.0</version>
     </dependency>
 
-    <!-- TestNG (optional) -->
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>7.11.0</version>
-      <scope>test</scope>
-    </dependency>
-
   </dependencies>
 
-  <!-- ========================================================= -->
-  <!--            BUILD PLUGINS                                  -->
-  <!-- ========================================================= -->
   <build>
     <plugins>
 
-      <!-- Surefire plugin: runs JUnit/Cucumber tests -->
+      <!-- Surefire plugin for JUnit Cucumber -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
         <configuration>
-          <!-- Run classes like CucumberRunnerAPI.java -->
+          <useModulePath>false</useModulePath>
           <includes>
             <include>**/*Runner*.java</include>
           </includes>
         </configuration>
       </plugin>
 
-      <!-- Clean plugin: removes target/ before each build -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-clean-plugin</artifactId>
         <version>3.3.2</version>
       </plugin>
 
-      <!-- Site plugin: generates basic HTML site/reports -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>3.12.1</version>
       </plugin>
 
-      <!-- Allure plugin: pretty test reports -->
       <plugin>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>
